@@ -6,14 +6,14 @@ body {
 
 
 header {
-  background-color: #F20C78;
+  background-image: url(${fundo});
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 25px;
   height: 10%;
 }
-
+/* 
 main {
   min-height: 80%;
   display: flex;
@@ -57,4 +57,4 @@ main {
 
 h4 {
   margin-left: 20px;
-}
+} */

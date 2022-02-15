@@ -7,14 +7,28 @@ import elo from "./img/elo.png"
 import pix from "./img/pix.png"
 import twitter from "./img/twitter.png"
 import instagram from "./img/instagram.png"
-import facebook from "./img/facebook.png"
+import facebook from "./img/facebook.jpg"
+import whatsapp from "./img/whatsapp.png"
+import googleplay from "./img/google-play.png"
+import app_store from "./img/app-store.png"
+import fundo from "./img/fundo.jpg"
+import cometa from "./img/cometa.png"
 
+const Header = styled.header`
+  background-image: url(${fundo});
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0 25px;
+  height: 10%;
+  color: white;
+`
 
 const Footer = styled.footer`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  background: #F20C78;
+  background-image: url(${fundo});
   color: white;
   position: fixed;
   bottom: 0;
@@ -24,8 +38,12 @@ const Footer = styled.footer`
 `
 
 const CosmozetaDoFooter = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr;
+  row-gap: 0px;
+  column-gap: 0px;
+  
 `
 
 const FormaDePagamento = styled.div`
@@ -41,12 +59,6 @@ const RedesSociais = styled.div`
 `
 
 const FaleConosco = styled.div`
-  display: flex;
-  flex-direction: column;
-
-`
-
-const BaixeOApp = styled.div`
   display: flex;
   flex-direction: column;
 
@@ -68,17 +80,41 @@ const Bandeiras = styled.div`
 `
 
 const LogoRedes = styled.div`
-
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
 
 `
 
 const LogoRede = styled.img`
-  width: 50px;
-
+  display: flex;
+  width: 40px;
+  justify-self: center;
+  margin: 7px;
+`
+const AppStore = styled.img`
+  width: 100px;
+  padding: 3px;
 `
 
+const BaixeOApp = styled.div`
+  display: flex;
+  flex-direction: column;
+`
 
+const LojasDeApp = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+const Contato = styled.div`
+  display: flex;
+  flex-direction: column;
+`
 
+const CometaLogo = styled.img`
+width:150px;
+`
 
 
 
@@ -87,10 +123,11 @@ export default class App extends React.Component {
   render() {
     return (
       <div>
-        <header>
+        <Header>
+          <CometaLogo src={cometa}></CometaLogo>
           <h1>CosmoZeta</h1>
           <input type="text" placeholder="Busca" id="campoDeBusca" />
-        </header>
+        </Header>
 
         {/* <main>
           <nav className="menu-vertical">
@@ -144,7 +181,10 @@ export default class App extends React.Component {
         <CosmozetaDoFooter>
           <h3>CosmoZeta</h3>
           <p>Rua 9 de Janeiro, 123</p>
+          <p>Conjunto 028</p>
+          <p>Liberdade</p>
           <p>CNPJ 01.329.134/0001-20</p>
+          
         </CosmozetaDoFooter>
 
         <FormaDePagamento>
@@ -163,10 +203,25 @@ export default class App extends React.Component {
             <LogoRede src={twitter}/>
             <LogoRede src={facebook}/>
             <LogoRede src={instagram}/>
+            <LogoRede src={whatsapp} />
           </LogoRedes>
         </RedesSociais>
-        <FaleConosco />Fale conosco
-        <BaixeOApp />Baixe o app
+
+        <FaleConosco>
+          <h3>Fale conosco</h3>
+          <Contato>
+            <p>Caixa Postal</p>
+            <p>Email:</p> 
+          </Contato>
+        </FaleConosco>
+
+        <BaixeOApp>
+          <h3>Baixe o App</h3>
+          <LojasDeApp>
+          <AppStore src={app_store} />
+          <AppStore src={googleplay} />
+          </LojasDeApp>
+        </BaixeOApp>
 
     </Footer>
     </div>
