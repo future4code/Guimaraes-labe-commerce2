@@ -13,6 +13,7 @@ import googleplay from "./img/google-play.png"
 import app_store from "./img/app-store.png"
 import fundo from "./img/fundo.jpg"
 import cometa from "./img/cometa.png"
+import foguete from "./img/foguete.png"
 
 const Header = styled.header`
   background-image: url(${fundo});
@@ -22,6 +23,15 @@ const Header = styled.header`
   padding: 0 25px;
   height: 10%;
   color: white;
+
+  div {
+    display: flex;
+  }
+
+  div img {
+    width:30px;
+    filter: invert(100%);
+  }
 `
 
 const Footer = styled.footer`
@@ -32,10 +42,11 @@ const Footer = styled.footer`
   color: white;
   position: fixed;
   bottom: 0;
-  width: 100%;
-  height: 30vh;
+  height: 35vh;
   padding: 0 10px;
   position: relative;
+
+  
 `
 
 const CosmozetaDoFooter = styled.div`
@@ -115,8 +126,38 @@ const Filtro = styled.div`
 display: flex;
 flex-direction: column;
 border-right: solid black;
+padding: 5px;
+padding-top: 20px;
 
+h2 {
+  align-self: center;
+}
 
+input {
+  margin-top:5px;
+  width: 130px;
+  align-self: center;
+}
+
+select {
+  width: 138px;
+  align-self: center;
+}
+
+button {
+  margin-top: 10px;
+  width: fit-content;
+  align-self: center;
+  margin-bottom: 70px;
+}
+
+a {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  align-self: center;
+  text-decoration: none;
+  font-size: x-large;
+}
 `
 
 const Camisetas = styled.div`
@@ -126,16 +167,49 @@ border: black;
 
 const Carrinho = styled.div`
 display: flex;
+flex-direction: column;
+padding: 5px;
+padding-top: 20px;
 border-left: solid black;
 
+h2 {
+  align-self: center;
+}
+
+input {
+  margin-top:5px;
+  width: 130px;
+  align-self: center;
+}
+
+div {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  width: 120px;
+  align-self: center;
+  margin-top: 10px;
+}
+
 `
+
+const FinalizarCompra = styled.button`
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #6495ED;
+`
+
+
 
 const Main = styled.div`
 display: grid;
 grid-template-columns: 1fr 4fr 1fr;
 grid-template-rows: 1fr;
 background-color: #B0C4DE;
-height: 150vh;
+height: 100vh;
 `
 
 
@@ -147,18 +221,38 @@ export default class App extends React.Component {
         <Header>
           <CometaLogo src={cometa}></CometaLogo>
           <h1>CosmoZeta</h1>
+          <div>
           <input type="text" placeholder="Busca"/>
+          <img src={foguete} />
+          </div>
         </Header>
 
         <Main>
 
           <Filtro>
+            <h2>Filtrar</h2>
             <select>
-              
-            </select>
-            <input type="text" placeholder='Mínimo' />
-            <input type="text" placeholder='Máximo' />
+              <option value="">Tamanho</option>
+              <option value="6">6</option>
+              <option value="8">8</option>
+              <option value="10">10</option>
+              <option value="12">12</option>
+              <option value="14">14</option>
+              <option value="p">P</option>
+              <option value="m">M</option>
+              <option value="g">G</option>
+              <option value="gg">GG</option>
+              <option value="xxg">XXG</option>
 
+            </select>
+            <input type="text" placeholder='R$ Valor Mínimo' />
+            <input type="text" placeholder='R$ Valor Máximo' />
+            <button value="Aplicar">Aplicar</button>
+            <a href="App">Coleção Planetas</a>
+            <a href="App">Coleção Astronauta</a>
+            <a href="App">Coleção Planetinhas</a>
+            <a href="App">Outono/Inverno</a>
+            <a href="App">Primavera/Verão</a>
           </Filtro>
 
           <Camisetas>
@@ -166,6 +260,23 @@ export default class App extends React.Component {
           </Camisetas>
 
           <Carrinho>
+
+              <h2>Resumo</h2>
+            
+            <div>
+              <input placeholder='UF'></input>
+              <input placeholder='CEP'></input>
+              <button>Calcular frete</button>
+            </div>
+
+            <div>
+              <input placeholder='Cupom de desconto'></input>
+              <button>Aplicar desconto</button>
+            </div>
+
+            <div>
+              <FinalizarCompra>Finalizar compra</FinalizarCompra>
+            </div>
 
           </Carrinho>
 
@@ -178,10 +289,12 @@ export default class App extends React.Component {
         <Footer>
         <CosmozetaDoFooter>
           <h3>CosmoZeta</h3>
+          <div>
           <p>Rua 9 de Janeiro, 123</p>
           <p>Conjunto 028</p>
           <p>Liberdade</p>
           <p>CNPJ 01.329.134/0001-20</p>
+          </div>
           
         </CosmozetaDoFooter>
 
