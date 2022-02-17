@@ -13,6 +13,7 @@ import googleplay from "./img/google-play.png"
 import app_store from "./img/app-store.png"
 import fundo from "./img/fundo.jpg"
 import cometa from "./img/cometa.png"
+import foguete from "./img/foguete.png"
 
 const Header = styled.header`
   background-image: url(${fundo});
@@ -22,6 +23,15 @@ const Header = styled.header`
   padding: 0 25px;
   height: 10%;
   color: white;
+
+  div {
+    display: flex;
+  }
+
+  div img {
+    width:30px;
+    filter: invert(100%);
+  }
 `
 
 const Footer = styled.footer`
@@ -32,9 +42,11 @@ const Footer = styled.footer`
   color: white;
   position: fixed;
   bottom: 0;
-  width: 100%;
-  height: 200px;
+  height: 35vh;
   padding: 0 10px;
+  position: relative;
+
+  
 `
 
 const CosmozetaDoFooter = styled.div`
@@ -49,26 +61,22 @@ const CosmozetaDoFooter = styled.div`
 const FormaDePagamento = styled.div`
   display: flex;
   flex-direction: column;
-
 `
 
 const RedesSociais = styled.div`
   display: flex;
   flex-direction: column;
-
 `
 
 const FaleConosco = styled.div`
   display: flex;
   flex-direction: column;
-
 `
 
 const Bandeira = styled.img`
   display: flex;
   width: 50px;
   justify-self: center;
-
 `
 
 const Bandeiras = styled.div`
@@ -76,7 +84,6 @@ const Bandeiras = styled.div`
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-
 `
 
 const LogoRedes = styled.div`
@@ -84,7 +91,6 @@ const LogoRedes = styled.div`
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-
 `
 
 const LogoRede = styled.img`
@@ -116,6 +122,95 @@ const CometaLogo = styled.img`
 width:150px;
 `
 
+const Filtro = styled.div`
+display: flex;
+flex-direction: column;
+border-right: solid black;
+padding: 5px;
+padding-top: 20px;
+
+h2 {
+  align-self: center;
+}
+
+input {
+  margin-top:5px;
+  width: 130px;
+  align-self: center;
+}
+
+select {
+  width: 138px;
+  align-self: center;
+}
+
+button {
+  margin-top: 10px;
+  width: fit-content;
+  align-self: center;
+  margin-bottom: 70px;
+}
+
+a {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  align-self: center;
+  text-decoration: none;
+  font-size: x-large;
+}
+`
+
+const Camisetas = styled.div`
+display:flex;
+border: black;
+`
+
+const Carrinho = styled.div`
+display: flex;
+flex-direction: column;
+padding: 5px;
+padding-top: 20px;
+border-left: solid black;
+
+h2 {
+  align-self: center;
+}
+
+input {
+  margin-top:5px;
+  width: 130px;
+  align-self: center;
+}
+
+div {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  width: 120px;
+  align-self: center;
+  margin-top: 10px;
+}
+
+`
+
+const FinalizarCompra = styled.button`
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #6495ED;
+`
+
+
+
+const Main = styled.div`
+display: grid;
+grid-template-columns: 1fr 4fr 1fr;
+grid-template-rows: 1fr;
+background-color: #B0C4DE;
+height: 100vh;
+`
 
 
 export default class App extends React.Component {
@@ -126,64 +221,80 @@ export default class App extends React.Component {
         <Header>
           <CometaLogo src={cometa}></CometaLogo>
           <h1>CosmoZeta</h1>
-          <input type="text" placeholder="Busca" id="campoDeBusca" />
+          <div>
+          <input type="text" placeholder="Busca"/>
+          <img src={foguete} />
+          </div>
         </Header>
 
-        {/* <main>
-          <nav className="menu-vertical">
-            <ul>
-              <li className="botoes-meunu-vertical">Início</li>
-              <li className="botoes-meunu-vertical">Em alta</li>
-              <li className="botoes-meunu-vertical">Inscrições</li>
-              <hr />
-              <li className="botoes-meunu-vertical">Originais</li>
-              <li className="botoes-meunu-vertical">Histórico</li>
-            </ul>
-          </nav>
+        <Main>
 
-          <section className="painel-de-videos">
-            <div className="box-pagina-principal" onClick={reproduzVideo}>
-              <img src="https://picsum.photos/400/400?a=1 " alt="" />
-              <h4>{titulo}</h4>
-            </div>
-            <div className="box-pagina-principal" onClick={reproduzVideo}>
-              <img src="https://picsum.photos/400/400?a=2 " alt="" />
-              <h4>{titulo}</h4>
-            </div>
-            <div className="box-pagina-principal" onClick={reproduzVideo}>
-              <img src="https://picsum.photos/400/400?a=3 " alt="" />
-              <h4>{titulo}</h4>
-            </div>
-            <div className="box-pagina-principal" onClick={reproduzVideo}>
-              <img src="https://picsum.photos/400/400?a=4 " alt="" />
-              <h4>{titulo}</h4>
-            </div>
-            <div className="box-pagina-principal" onClick={reproduzVideo}>
-              <img src="https://picsum.photos/400/400?a=5 " alt="" />
-              <h4>{titulo}</h4>
-            </div>
-            <div className="box-pagina-principal" onClick={reproduzVideo}>
-              <img src="https://picsum.photos/400/400?a=6 " alt="" />
-              <h4>{titulo}</h4>
-            </div>
-            <div className="box-pagina-principal" onClick={reproduzVideo}>
-              <img src="https://picsum.photos/400/400?a=7 " alt="" />
-              <h4>{titulo}</h4>
-            </div>
-            <div className="box-pagina-principal" onClick={reproduzVideo}>
-              <img src="https://picsum.photos/400/400?a=8 " alt="" />
-              <h4>{titulo}</h4>
-            </div>
-          </section>
-        </main> */}
+          <Filtro>
+            <h2>Filtrar</h2>
+            <select>
+              <option value="">Tamanho</option>
+              <option value="6">6</option>
+              <option value="8">8</option>
+              <option value="10">10</option>
+              <option value="12">12</option>
+              <option value="14">14</option>
+              <option value="p">P</option>
+              <option value="m">M</option>
+              <option value="g">G</option>
+              <option value="gg">GG</option>
+              <option value="xxg">XXG</option>
 
-    <Footer>
+            </select>
+            <input type="text" placeholder='R$ Valor Mínimo' />
+            <input type="text" placeholder='R$ Valor Máximo' />
+            <button value="Aplicar">Aplicar</button>
+            <a href="App">Coleção Planetas</a>
+            <a href="App">Coleção Astronauta</a>
+            <a href="App">Coleção Planetinhas</a>
+            <a href="App">Outono/Inverno</a>
+            <a href="App">Primavera/Verão</a>
+          </Filtro>
+
+          <Camisetas>
+
+          </Camisetas>
+
+          <Carrinho>
+
+              <h2>Resumo</h2>
+            
+            <div>
+              <input placeholder='UF'></input>
+              <input placeholder='CEP'></input>
+              <button>Calcular frete</button>
+            </div>
+
+            <div>
+              <input placeholder='Cupom de desconto'></input>
+              <button>Aplicar desconto</button>
+            </div>
+
+            <div>
+              <FinalizarCompra>Finalizar compra</FinalizarCompra>
+            </div>
+
+          </Carrinho>
+
+        </Main>
+
+
+
+
+
+        <Footer>
         <CosmozetaDoFooter>
           <h3>CosmoZeta</h3>
+          <div>
           <p>Rua 9 de Janeiro, 123</p>
           <p>Conjunto 028</p>
           <p>Liberdade</p>
           <p>CNPJ 01.329.134/0001-20</p>
+          </div>
           
         </CosmozetaDoFooter>
 
@@ -228,4 +339,3 @@ export default class App extends React.Component {
   )
     }
   }
-
