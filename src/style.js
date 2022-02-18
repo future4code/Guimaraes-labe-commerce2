@@ -6,7 +6,7 @@ export const Page = styled.div`
 width: 100%;
 `
 
-export const Header = styled.header `
+export const DivHeader = styled.header `
 background-image: url(${fundo});
 display: flex;
 align-items: center;
@@ -26,7 +26,7 @@ padding-top: 2px;
 }
 `
 
-export const Footer = styled.footer `
+export const DivFooter = styled.footer `
 display: flex;
 justify-content: space-around;
 font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
