@@ -71,6 +71,10 @@ width: 130px;
 align-self: center;
 }
 
+span {
+    align-self: center;
+}
+
 select {
 width: 138px;
 align-self: center;

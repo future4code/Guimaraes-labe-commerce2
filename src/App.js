@@ -2,12 +2,6 @@ import React from 'react';
 import './App.css';
 import { Page, Filtro, Camisetas, Carrinho, FinalizarCompra, Main } from './style';
 import CardCamiseta from './components/CardCamiseta';
-// import camisetaBaloes from './img/camisetaBaloes.png';
-// import camisetaGato from './img/camisetaGato.png'
-// import camisetaNasa from './img/camisetaNasa.png'
-// import camisetaSU from './img/camisetaStaUO.png'
-// import camisetaInfantil1 from './img/camisetaInfantil1.png'
-// import camisetaInfantil2 from './img/camisetaInfantil2.png'
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Estoque from "./Estoque.json"
@@ -19,27 +13,37 @@ import Estoque from "./Estoque.json"
 export default class App extends React.Component {
   state = {
     camiseta: Estoque,
-    query: ""
+    valorMin: "",
+    valorMax: "",
+    tamanho: "",
+    query: "",
+    sortingParameter: ""
+
   }
-
-  // atualizaValorMin(event) {
-  //   this.setState({
-  //     valorMin: ev.target.value
-  //   })
-  // }
-
-  // atualizaValorMax(event) {
-  //   this.setState({
-  //     valorMax: ev.target.value
-  //   })
-  // }
 
   updateQuery = (ev) => {
-    this.setState({
-      query: ev.target.value
-    })
+  this.setState({
+  query: ev.target.value
+  })
   }
 
+  updateValorMin = (ev) => {
+  this.setState({
+    valorMin: ev.target.value
+  })
+}
+
+updateValorMax = (ev) => {
+  this.setState({
+    valorMax: ev.target.value
+  })
+}
+
+updateSortingParameter = (ev) => {
+  this.setState({
+    sortingParameter: ev.target.value
+  })
+}
 
 
   render() {
@@ -51,27 +55,27 @@ export default class App extends React.Component {
         <Main>
           <Filtro>
             <h2>Filtrar</h2>
-            <select>
-              <option value="">Tamanho</option>
-              <option value="6">6</option>
-              <option value="8">8</option>
-              <option value="10">10</option>
-              <option value="12">12</option>
-              <option value="14">14</option>
-              <option value="p">P</option>
-              <option value="m">M</option>
-              <option value="g">G</option>
-              <option value="gg">GG</option>
-              <option value="xxg">XXG</option>
-            </select>
-            <input type="text" placeholder='R$ Valor Mínimo' 
-            value={this.state.query} onChange={this.updateQuery}/>
-            {this.state.query}
 
-            <input type="text" placeholder='R$ Valor Máximo' />
-            {/* value={this.state.valorMax} 
-            onChange={this.atualizaValorMax} /> */}
-            <button value="Aplicar">Aplicar</button>
+            <input type="text" placeholder='Por nome de produto' 
+            value={this.state.query} onChange={this.updateQuery}/>
+
+            <input type="text" placeholder='R$ Valor Mínimo' 
+            value={this.state.valorMin} 
+            onChange={this.updateValorMin} />
+
+            <input type="text" placeholder='R$ Valor Máximo' 
+            value={this.state.valorMax} 
+            onChange={this.updateValorMax} />
+
+            <span>
+              <select name="sort" value={this.state.sortingParameter}
+              onChange={this.updateSortingParameter}>
+                <option value="">Ordenação</option>
+                <option value="descricao"> Nome </option>
+                <option value="valor">Preço</option>
+              </select>
+            </span>
+
 
             <a href="App">Coleção Planetas</a>
             <a href="App">Coleção Astronauta</a>
@@ -81,9 +85,23 @@ export default class App extends React.Component {
           </Filtro>
 
           <Camisetas>
-            {this.state.Estoque
-            .filter(item =>{
-              return item.descricao.includes(this.state.query)
+            {this.state.camiseta
+            .filter(item => {
+              return item.descricao.toLowerCase().includes(this.state.query.toLowerCase())
+            })
+            .filter(item => {
+              return this.state.valorMin == "" || item.valor >= this.state.valorMin
+            })
+            .filter(item => {
+              return this.state.valorMax == "" || item.valor <= this.state.valorMax
+            })
+            .sort((a,b) => {
+              switch (this.state.sortingParameter) {
+                case "descricao":
+                  return a.descricao.localeCompare(b.descricao)
+              default:
+                return a.valor - b.valor
+              }
             })
             .map(item => {
               return <CardCamiseta key={item.id} item={item} />

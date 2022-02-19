@@ -9,8 +9,8 @@ function Header() {
             <CometaLogo src={cometa} />
             <h1>CosmoZeta</h1>
                 <div>
-                <input type="text" placeholder="Busca"/>
-                <img src={lupa} />
+                {/* <input type="text" placeholder="Busca"/>
+                <img src={lupa} /> */}
             </div>
         </DivHeader>
 )

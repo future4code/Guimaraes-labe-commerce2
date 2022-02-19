@@ -27,12 +27,10 @@ const Card = styled.div`
 export default function CardCamiseta(props) {
         return (
             <Card>
-                <img src={props.item.imagem}></img>
-                <div>   
+                    <img src={props.item.imagem}></img>  
+                <div> 
                     <p descricao={props.item.descricao}> {props.item.descricao}</p>
-                    <select>{}</select>
-                    <select>{}</select>
-                    <button>{}</button>
+                    <p valor={props.item.valor}> R$ {props.item.valor}</p>
                 </div> 
             </Card>
 )
