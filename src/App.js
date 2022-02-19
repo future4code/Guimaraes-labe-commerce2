@@ -2,14 +2,15 @@ import React from 'react';
 import './App.css';
 import { Page, Filtro, Camisetas, Carrinho, FinalizarCompra, Main } from './style';
 import CardCamiseta from './components/CardCamiseta';
-import camisetaBaloes from './img/camisetaBaloes.png';
-import camisetaGato from './img/camisetaGato.png'
-import camisetaNasa from './img/camisetaNasa.png'
-import camisetaSU from './img/camisetaStaUO.png'
-import camisetaInfantil1 from './img/camisetaInfantil1.png'
-import camisetaInfantil2 from './img/camisetaInfantil2.png'
+// import camisetaBaloes from './img/camisetaBaloes.png';
+// import camisetaGato from './img/camisetaGato.png'
+// import camisetaNasa from './img/camisetaNasa.png'
+// import camisetaSU from './img/camisetaStaUO.png'
+// import camisetaInfantil1 from './img/camisetaInfantil1.png'
+// import camisetaInfantil2 from './img/camisetaInfantil2.png'
 import Footer from './components/Footer';
 import Header from './components/Header';
+import Estoque from "./Estoque.json"
 
 
 
@@ -17,23 +18,29 @@ import Header from './components/Header';
 
 export default class App extends React.Component {
   state = {
-    tamanho: "",
-    quantidade: "",
-    valorMin: "",
-    valorMax: ""
+    camiseta: Estoque,
+    query: ""
   }
 
-  atualizaValorMin(ev) {
+  // atualizaValorMin(event) {
+  //   this.setState({
+  //     valorMin: ev.target.value
+  //   })
+  // }
+
+  // atualizaValorMax(event) {
+  //   this.setState({
+  //     valorMax: ev.target.value
+  //   })
+  // }
+
+  updateQuery = (ev) => {
     this.setState({
-      valorMin: ev.target.value
+      query: ev.target.value
     })
   }
 
-  atualizaValorMax(ev) {
-    this.setState({
-      valorMax: ev.target.value
-    })
-  }
+
 
   render() {
     return (
@@ -58,12 +65,12 @@ export default class App extends React.Component {
               <option value="xxg">XXG</option>
             </select>
             <input type="text" placeholder='R$ Valor Mínimo' 
-            value={this.state.valorMin} 
-            onChange={this.atualizaValorMin} />
+            value={this.state.query} onChange={this.updateQuery}/>
+            {this.state.query}
 
-            <input type="text" placeholder='R$ Valor Máximo'
-            value={this.state.valorMax} 
-            onChange={this.atualizaValorMax} />
+            <input type="text" placeholder='R$ Valor Máximo' />
+            {/* value={this.state.valorMax} 
+            onChange={this.atualizaValorMax} /> */}
             <button value="Aplicar">Aplicar</button>
 
             <a href="App">Coleção Planetas</a>
@@ -74,19 +81,14 @@ export default class App extends React.Component {
           </Filtro>
 
           <Camisetas>
+            {this.state.Estoque
+            .filter(item =>{
+              return item.descricao.includes(this.state.query)
+            })
+            .map(item => {
+              return <CardCamiseta key={item.id} item={item} />
+            })}
 
-            <CardCamiseta imagem={camisetaBaloes} 
-            descricao="Camiseta Balões de Planetas" />
-            <CardCamiseta imagem={camisetaGato} 
-            descricao="Camiseta do Gato Astronauta"/>
-            <CardCamiseta imagem={camisetaNasa} 
-            descricao='Camiseta "Agora a NASA vem!"' />
-            <CardCamiseta imagem={camisetaSU} 
-            descricao="Camiseta Stá UÓ"/>
-            <CardCamiseta imagem={camisetaInfantil1} 
-            descricao="Camiseta Infantil Saturno"/>
-            <CardCamiseta imagem={camisetaInfantil2} 
-            descricao="Camiseta Astronauta com o nome customizável"/>
 
           </Camisetas>
 
@@ -108,9 +110,24 @@ export default class App extends React.Component {
             </div>
           </Carrinho>
         </Main>
+
         <Footer />
 
     </Page>
   )
     }
   }
+
+  {/* 
+            <CardCamiseta imagem={camisetaBaloes} 
+            descricao="Camiseta Balões de Planetas" />
+            <CardCamiseta imagem={camisetaGato} 
+            descricao="Camiseta do Gato Astronauta"/>
+            <CardCamiseta imagem={camisetaNasa} 
+            descricao='Camiseta "Agora a NASA vem!"' />
+            <CardCamiseta imagem={camisetaSU} 
+            descricao="Camiseta Stá UÓ"/>
+            <CardCamiseta imagem={camisetaInfantil1} 
+            descricao="Camiseta Infantil Saturno"/>
+            <CardCamiseta imagem={camisetaInfantil2} 
+            descricao="Camiseta Astronauta com o nome customizável"/> */}

@@ -1,0 +1,45 @@
+[
+    {
+        "id": "1",
+        "descricao": "Camiseta Balões de Planetas",
+        "valor": "60.00",
+        "imagem": "../img/camisetaBaloes.png",
+        "tamanho": "[\"P\" , \"M\" , \"G\" , \"GG\" , \"XXG\"]"
+    } ,
+
+    {
+        "id": "2",
+        "descricao": "Camiseta do Gato Astronauta",
+        "valor": "50.00",
+        "imagem": "../img/camisetaBaloes.png",
+        "tamanho": "[\"P\" , \"M\" , \"G\" , \"GG\" , \"XXG\"]"
+    } ,
+    {
+        "id": "3",
+        "descricao": "Camiseta Agora a NASA vem!",
+        "valor": "70.00",
+        "imagem": "../img/camisetaBaloes.png",
+        "tamanho": "[\"P\" , \"M\" , \"GG\" , \"XXG\"]"
+    } ,
+    {
+        "id": "4",
+        "descricao": "Camiseta Stá UÓ",
+        "valor": "60.00",
+        "imagem": "../img/camisetaBaloes.png",
+        "tamanho": "[\"P\" , \"M\" , \"G\" , \"GG\" , \"XXG\"]"
+    } ,
+    {
+        "id": "5",
+        "descricao": "Camiseta Infantil Saturno",
+        "valor": "50.00",
+        "imagem": "../img/camisetaBaloes.png",
+        "tamanho": "[\"6\" , \"8\" , \"10\" , \"12\" , \"14\"]"
+    } ,
+    {
+        "id": "6",
+        "descricao": "Camiseta Infantil Astronauta com o nome customizável",
+        "valor": "70.00",
+        "imagem": "../img/camisetaBaloes.png",
+        "tamanho": "[\"6\" , \"8\" , \"10\" , \"12\" , \"14\"]"
+    } 
+]
