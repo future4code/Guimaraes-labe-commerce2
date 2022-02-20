@@ -5,6 +5,7 @@ import CardCamiseta from './components/CardCamiseta';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Estoque from "./Estoque.json"
+import ListaDoCarrinho from './components/ListaDoCarrinho';
 
 
 
@@ -15,10 +16,10 @@ export default class App extends React.Component {
     camiseta: Estoque,
     valorMin: "",
     valorMax: "",
-    tamanho: "",
     query: "",
-    sortingParameter: ""
-
+    sortingParameter: "",
+    carrinhoDeCompras: [],
+    valor: ""
   }
 
   updateQuery = (ev) => {
@@ -112,6 +113,9 @@ updateSortingParameter = (ev) => {
 
           <Carrinho>
             <h2>Carrinho</h2>
+
+            
+            
               <div>
                 <input placeholder='UF'></input>
                 <input placeholder='CEP'></input>

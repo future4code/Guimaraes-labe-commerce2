@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import App from "../App"
 
 const Card = styled.div`
     display: flex;
@@ -21,7 +20,6 @@ const Card = styled.div`
         margin: 10px;
         margin-top: 0;
     }
-
 `
 
 export default function CardCamiseta(props) {
@@ -31,7 +29,9 @@ export default function CardCamiseta(props) {
                 <div> 
                     <p descricao={props.item.descricao}> {props.item.descricao}</p>
                     <p valor={props.item.valor}> R$ {props.item.valor}</p>
+                    <button>Adicionar ao carrinho</button>
                 </div> 
+
             </Card>
 )
 }
