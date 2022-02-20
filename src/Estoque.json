@@ -1,0 +1,45 @@
+[
+    {
+        "id": "1",
+        "descricao": "Camiseta Balões de Planetas",
+        "valor": "59.90",
+        "imagem": "https://images-americanas.b2w.io/produtos/4617387444/imagens/camiseta-masculina-raglan-branca-estampada-nasa-astronauta-baloes-gg/4617387452_1_large.jpg",
+        "quantidade": "10"
+    } ,
+
+    {
+        "id": "2",
+        "descricao": "Camiseta do Gato Astronauta",
+        "valor": "49.90",
+        "imagem": "https://static3.tcdn.com.br/img/img_prod/460977/camiseta_feminina_unissex_gato_astronauta_nasa_espaco_preta_ev_77287_1_c184df988abc2a7cb1608805915c95e8.jpg",
+        "quantidade": "10"
+    } ,
+    {
+        "id": "3",
+        "descricao": "Camiseta Agora a NASA vem!",
+        "valor": "69.90",
+        "imagem": "https://images.tcdn.com.br/img/img_prod/794582/camiseta_agora_a_nasa_vem_1171_1_2e3562c94c8252eb3ca4c31ccbcbc6cd.jpeg",
+        "quantidade": "1"
+    } ,
+    {
+        "id": "4",
+        "descricao": "Camiseta Stá UÓ",
+        "valor": "59.90",
+        "imagem": "https://img.focanamoda.com.br/cache/1000x1000/s/t/sta-uo-camiseta-masculina_1.jpg",
+        "quantidade": "0"
+    } ,
+    {
+        "id": "5",
+        "descricao": "Camiseta Infantil Planetas",
+        "valor": "49.90",
+        "imagem": "https://a-static.mlcdn.com.br/618x463/camiseta-infantil-sistema-solar-tipos-de-planeta-espaco-mago-das-camisas/magodascamisas3/14863967534/882f74932b9bc7cc462cc00b3cf8b32e.jpg",
+        "quantidade": "10"
+    } ,
+    {
+        "id": "6",
+        "descricao": "Camiseta Infantil Astronauta com o nome customizável",
+        "valor": "69.90",
+        "imagem": "https://img.elo7.com.br/product/main/3F691AA/camiseta-aniversario-astronauta-camisa-fazendinha.jpg",
+        "quantidade": "2"
+    } 
+]
